@@ -34,7 +34,9 @@ vcpkg_configure_cmake(
         -DITK_USE_SYSTEM_PNG=ON
         -DITK_USE_SYSTEM_TIFF=ON
         -DITK_USE_SYSTEM_ZLIB=ON
-        -DITK_FORBID_DOWNLOADS=OFF
+        -DITK_FORBID_DOWNLOADS=ON
+
+        -DITK_SKIP_PATH_LENGTH_CHECKS=ON
 
         # I havn't tried Python wrapping in vcpkg
         #-DITK_WRAP_PYTHON=ON
