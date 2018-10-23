@@ -22,7 +22,7 @@ vcpkg_download_distfile(ARCHIVE
     URLS "http://download.osgeo.org/gdal/${GDAL_VERSION_STR}/gdal${GDAL_VERSION_PKG}.zip"
     FILENAME "gdal${GDAL_VERSION_PKG}.zip"
     SHA512 ${GDAL_PACKAGE_SUM}
-    )
+)
 
 # Extract source into architecture specific directory, because GDALs' nmake based build currently does not
 # support out of source builds.
@@ -250,6 +250,4 @@ endif()
 vcpkg_copy_pdbs()
 
 # Handle copyright
-file(RENAME ${CURRENT_PACKAGES_DIR}/share/gdal/LICENSE.txt ${CURRENT_PACKAGES_DIR}/share/gdal/copyright)
-
-message(STATUS "Packaging ${TARGET_TRIPLET} done")
+configure_file(${SOURCE_PATH_RELEASE}/LICENSE.TXT ${CURRENT_PACKAGES_DIR}/share/gdal/copyright COPYONLY)
